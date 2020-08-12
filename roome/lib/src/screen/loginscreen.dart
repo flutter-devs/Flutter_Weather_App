@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roome/src/screen/signupscreen.dart';
+import 'package:roome/src/widgets/button.dart';
+import 'package:roome/src/widgets/inputbox.dart';
+import 'package:roome/src/widgets/socialbutton.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -42,39 +45,23 @@ class LoginBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              RaisedButton(
-                onPressed: () {},
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+              SocialButton(
                 color: Color(0xff3b5898),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0)),
-                child: Row(
-                  children: <Widget>[
-                    FaIcon(
-                      FontAwesomeIcons.facebookF,
-                      color: Colors.white,
-                    ),
-                    SizedBox(width: 5),
-                    Text('Facebook', style: TextStyle(color: Colors.white)),
-                  ],
+                text: 'Facebook',
+                icon: FaIcon(
+                  FontAwesomeIcons.facebookF,
+                  color: Colors.white,
                 ),
+                textcolor: Colors.white,
               ),
-              RaisedButton(
-                onPressed: () {},
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
+              SocialButton(
                 color: Color(0xff01abec),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0)),
-                child: Row(
-                  children: <Widget>[
-                    FaIcon(
-                      FontAwesomeIcons.twitter,
-                      color: Colors.white,
-                    ),
-                    SizedBox(width: 5),
-                    Text('Twitter  ', style: TextStyle(color: Colors.white)),
-                  ],
+                text: 'Twitter  ',
+                icon: FaIcon(
+                  FontAwesomeIcons.twitter,
+                  color: Colors.white,
                 ),
+                textcolor: Colors.white,
               ),
             ],
           ),
@@ -86,57 +73,11 @@ class LoginBody extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30.0),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey[200],
-                    blurRadius: 10.0,
-                    spreadRadius: 10.0),
-              ],
-            ),
-            child: TextField(
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Your Email',
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 14.0),
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 20.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30.0),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey[200],
-                    blurRadius: 10.0,
-                    spreadRadius: 10.0),
-              ],
-            ),
-            alignment: Alignment.centerLeft,
-            child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                border: InputBorder.none, alignLabelWithHint: true,
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 14.0),
-                hintText: 'Password',
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                // labelText: 'hjh',
-                // prefixText: 'jghj',
-                suffixIcon: Icon(
-                  Icons.remove_red_eye,
-                  color: Color(0xff53d2c1),
-                ),
-              ),
-            ),
-          ),
+          Inputbox(text: 'You Email'),
+          Inputbox(
+              obscuretext: true,
+              text: 'Password',
+              icon: Icon(Icons.remove_red_eye, color: Color(0xff53d2c1))),
           Align(
             alignment: Alignment.centerRight,
             child: Text(
@@ -148,24 +89,22 @@ class LoginBody extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              RaisedButton(
+              Button(
+                text: 'Log in',
+                textcolor: Colors.white,
+                buttonColor: Color(0xff53d2c1),
+                boxshadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 10.0,
+                    spreadRadius: 0,
+                    offset: Offset(0, 4),
+                  ),
+                ],
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => LoginScreen(),
-                  ),
-                ),
-                color: Color(0xff53d2c1),
-                elevation: 8,
-                padding: EdgeInsets.symmetric(vertical: 15.0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                child: Text(
-                  'Log in',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),

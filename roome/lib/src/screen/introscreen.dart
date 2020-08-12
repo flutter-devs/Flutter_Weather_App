@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roome/src/screen/loginscreen.dart';
 import 'package:roome/src/screen/signupscreen.dart';
+import 'package:roome/src/widgets/button.dart';
 
 class IntroScreen extends StatelessWidget {
   @override
@@ -18,46 +19,42 @@ class IntroScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  RaisedButton(
+                  Button(
+                    text: 'Log in',
+                    textcolor: Colors.white,
+                    buttonColor: Color(0xff53d2c1),
+                    boxshadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 10.0,
+                        spreadRadius: 0,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => LoginScreen(),
                       ),
                     ),
-                    color: Color(0xff53d2c1),
-                    elevation: 10,
-                    padding: EdgeInsets.symmetric(vertical: 15.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Text(
-                      'Log in',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
                   ),
                   // SizedBox(height: 20),
-                  RaisedButton(
+                  Button(
+                    text: 'Create Account',
+                    textcolor: Colors.black,
+                    buttonColor: Colors.white,
+                    boxshadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 10.0,
+                        spreadRadius: -4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => SignupScreen(),
-                      ),
-                    ),
-                    color: Colors.white,
-                    elevation: 8,
-                    padding: EdgeInsets.symmetric(vertical: 15.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Text(
-                      'Create Account',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),

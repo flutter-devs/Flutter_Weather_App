@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roome/src/screen/introscreen.dart';
 import 'package:roome/src/screen/loginscreen.dart';
+import 'package:roome/src/widgets/button.dart';
 
 class Splashscreen extends StatelessWidget {
   @override
@@ -63,22 +64,22 @@ class Splashscreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    RaisedButton(
+                    Button(
+                      text: 'Get Started',
+                      textcolor: Colors.white,
+                      buttonColor: Color(0xff53d2c1),
+                      boxshadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          blurRadius: 8,
+                          spreadRadius: -3,
+                        ),
+                      ],
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => IntroScreen(),
                         ),
-                      ),
-                      color: Color(0xff53d2c1),
-                      padding: EdgeInsets.symmetric(vertical: 14.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      child: Text(
-                        'Get Started',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.w400),
                       ),
                     ),
                     SizedBox(height: 40.0),
