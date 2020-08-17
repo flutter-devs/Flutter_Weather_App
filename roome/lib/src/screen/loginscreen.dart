@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:roome/src/screen/forgotpass.dart';
+import 'package:roome/src/screen/home.dart';
+import 'package:roome/src/screen/homescreen.dart';
 import 'package:roome/src/screen/signupscreen.dart';
 import 'package:roome/src/widgets/button.dart';
 import 'package:roome/src/widgets/inputbox.dart';
@@ -80,9 +83,17 @@ class LoginBody extends StatelessWidget {
               icon: Icon(Icons.remove_red_eye, color: Color(0xff53d2c1))),
           Align(
             alignment: Alignment.centerRight,
-            child: Text(
-              'Forgot your password?',
-              style: TextStyle(color: Colors.grey),
+            child: GestureDetector(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Forgotpass(),
+                ),
+              ),
+              child: Text(
+                'Forgot your password?',
+                style: TextStyle(color: Colors.grey),
+              ),
             ),
           ),
           SizedBox(height: 20.0),
@@ -90,6 +101,7 @@ class LoginBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Button(
+                height: 45,
                 text: 'Log in',
                 textcolor: Colors.white,
                 buttonColor: Color(0xff53d2c1),
@@ -104,7 +116,7 @@ class LoginBody extends StatelessWidget {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LoginScreen(),
+                    builder: (context) => Home(),
                   ),
                 ),
               ),

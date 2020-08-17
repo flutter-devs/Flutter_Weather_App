@@ -65,6 +65,7 @@ class Splashscreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Button(
+                      height: 45,
                       text: 'Get Started',
                       textcolor: Colors.white,
                       buttonColor: Color(0xff53d2c1),

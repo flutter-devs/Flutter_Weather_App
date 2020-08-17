@@ -5,10 +5,11 @@ import 'package:roome/src/screen/profilescreen.dart';
 import 'package:roome/src/screen/tripsscreen.dart';
 import 'package:roome/src/widgets/button.dart';
 import 'package:roome/src/widgets/customcard.dart';
+import 'package:roome/src/widgets/evnt.dart';
 import 'package:roome/src/widgets/searchbox.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key key}) : super(key: key);
 
   BottomAppBar bottomAppBar(BuildContext context) {
     return BottomAppBar(
@@ -24,8 +25,10 @@ class HomeScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Icon(Icons.search, color: Color(0xff53d2c1)),
-                Text('Explore',
-                    style: TextStyle(color: Color(0xff53d2c1), fontSize: 13.5))
+                Text(
+                  'Explore',
+                  style: TextStyle(color: Color(0xff53d2c1), fontSize: 13.5),
+                ),
               ],
             ),
             GestureDetector(
@@ -82,118 +85,53 @@ class Homebody extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return ListView(
-      padding: EdgeInsets.zero,
+      // padding: EdgeInsets.zero,
       children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+          child: SearchBox(
+              prefixIcon: Icon(Icons.search, color: Color(0xff53d2c1)),
+              hintText: 'Where are you going?'),
+        ),
+        // SizedBox(height: 20.0),
         Container(
-          height: size.height * 0.7,
+          height: 90,
           child: ListView.builder(
-            padding: EdgeInsets.zero,
             scrollDirection: Axis.horizontal,
-            itemCount: 1,
+            itemCount: 5,
             itemBuilder: (BuildContext context, int index) {
-              return Container(
-                height: size.height * 0.7,
-                width: size.width,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/img5.jpg'),
-                    fit: BoxFit.cover,
+              return Column(
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 60,
+                    width: 60,
+                    margin: EdgeInsets.only(left: 20.0),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/img3.jpg'),
+                          fit: BoxFit.fill),
+                      shape: BoxShape.circle,
+                    ),
                   ),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10.0),
-                    topRight: Radius.circular(10.0),
+                  Container(
+                    // width: ,
+                    margin: EdgeInsets.only(left: 20.0, top: 5),
+                    child: Text(
+                      'Hotels',
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   ),
-                ),
-                // alignment: Alignment.topLeft,
-                child: SafeArea(
-                  minimum:
-                      EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 30),
-                  child: Stack(
-                    children: <Widget>[
-                      SearchBox(
-                          prefixIcon:
-                              Icon(Icons.search, color: Color(0xff53d2c1)),
-                          hintText: 'Where are you going?'),
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Text(
-                              'Spain',
-                              style: GoogleFonts.robotoSlab(
-                                  color: Colors.white,
-                                  fontSize: 42.0,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 10.0),
-                            Text(
-                              'Extraordinary five-star\noutdoor activites',
-                              style: GoogleFonts.robotoSlab(
-                                  fontSize: 20,
-                                  color: Colors.white70,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            SizedBox(height: 20.0),
-                            Button(
-                              height: size.width * 0.1,
-                              width: size.width * 0.32,
-                              text: 'View Hotels',
-                              textcolor: Colors.white,
-                              textStyle: TextStyle(fontWeight: FontWeight.w400),
-                              buttonColor: Color(0xff53d2c1),
-                              onPressed: () {},
-                            ),
-                          ],
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          width: 60,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Container(
-                                height: 10,
-                                width: 10,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Container(
-                                height: 10,
-                                width: 10,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color(0xff53d2c1),
-                                ),
-                              ),
-                              Container(
-                                height: 10,
-                                width: 10,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                ],
               );
             },
           ),
         ),
+        EventCard(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10.0),
           child: Text(
-            'Popular Destination',
+            'Popular Destinations',
             style: GoogleFonts.robotoSlab(
               color: Colors.black,
               fontSize: 18,

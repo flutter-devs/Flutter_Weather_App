@@ -5,6 +5,8 @@ class Button extends StatelessWidget {
   final String text;
   final Color buttonColor, textcolor;
   final void Function() onPressed;
+  final double height, width;
+  final TextStyle textStyle;
   const Button({
     Key key,
     this.boxshadow,
@@ -12,22 +14,30 @@ class Button extends StatelessWidget {
     this.buttonColor,
     this.onPressed,
     this.textcolor,
+    this.height,
+    this.width,
+    this.textStyle,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height,
+      width: width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
-        color: buttonColor,
         boxShadow: boxshadow,
       ),
       child: FlatButton(
         onPressed: onPressed,
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15.5),
+        color: buttonColor,
+        padding: EdgeInsets.symmetric(horizontal: 10),
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-        child: Text(text),
+        child: Text(
+          text,
+          style: textStyle,
+        ),
         textColor: textcolor,
       ),
     );
