@@ -14,7 +14,7 @@ class EventCard extends StatelessWidget {
     return Container(
       height: size.width * 1.2,
       child: Swiper(
-        itemCount: 3,
+        itemCount: events.length,
         loop: false,
         viewportFraction: 0.9,
         scale: 0.95,
@@ -51,7 +51,7 @@ class BuildCard extends StatelessWidget {
     // Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(left: 0.0, top: 12.0, bottom: 12.0, right: 10),
-      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(event.image),
@@ -70,25 +70,30 @@ class BuildCard extends StatelessWidget {
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Text(
-                'SAVE OUR'
-                '\nOCEAN'
-                '\nMOVEMENT',
+                event.title,
                 style: GoogleFonts.robotoSlab(
-                  color: Colors.white,
-                  fontSize: 25.0,
-                ),
+                    color: Colors.white,
+                    fontSize: 42.0,
+                    fontWeight: FontWeight.bold),
               ),
-              FlatButton(
-                // padding: EdgeInsets.symmetric(vertical: 0),
-                onPressed: () {},
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Text("View"),
+              SizedBox(height: 10.0),
+              Container(
+                height: 5,
+                width: 20,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white),
+              ),
+              SizedBox(height: 10.0),
+              Text(
+                'Extraordinary five-star\noutdoor activites',
+                style: GoogleFonts.robotoSlab(
+                    fontSize: 20,
+                    color: Colors.white70,
+                    fontWeight: FontWeight.w500),
               ),
             ],
           ),

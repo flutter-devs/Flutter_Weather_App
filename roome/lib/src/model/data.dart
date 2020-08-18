@@ -83,7 +83,7 @@ class Event {
 
 List<Event> events = [
   Event(
-    image: 'assets/images/img5.jpg',
+    image: 'assets/images/img2.jpg',
     title: 'Spain',
   ),
   Event(
@@ -96,6 +96,10 @@ List<Event> events = [
   ),
   Event(
     image: 'assets/images/img4.jpg',
+    title: 'France',
+  ),
+  Event(
+    image: 'assets/images/img5.jpg',
     title: 'France',
   ),
 ];

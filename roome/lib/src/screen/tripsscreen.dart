@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:roome/src/screen/home.dart';
 import 'package:roome/src/screen/homescreen.dart';
 import 'package:roome/src/screen/profilescreen.dart';
 import 'package:roome/src/widgets/customcard.dart';
@@ -20,7 +21,7 @@ class TripsScreen extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
+                  builder: (context) => Home(),
                 ),
               ),
               child: Column(
@@ -102,7 +103,7 @@ class _TripsbodyState extends State<Tripsbody> {
             borderRadius: BorderRadius.circular(40.0),
             color: Colors.grey[100],
           ),
-          margin: EdgeInsets.symmetric(vertical: 20.0),
+          margin: EdgeInsets.only(top: 20.0),
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: ListView.builder(
             itemCount: 3,
@@ -146,10 +147,30 @@ class _TripsbodyState extends State<Tripsbody> {
 Widget upcoming(BuildContext context) {
   return Column(
     children: <Widget>[
+      Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Text(
+          '12 Dec - 22 Dec, 1 Room - 2 Adults',
+          style: TextStyle(fontWeight: FontWeight.w500),
+        ),
+      ),
       CustomCardB(image: 'assets/images/img5.jpg', title: 'Grand Royal Hotel'),
-      SizedBox(height: 20),
-      CustomCardB(image: 'assets/images/img4.jpg', title: 'Grand Royal Hotel'),
-      SizedBox(height: 20),
+      // SizedBox(height: 20),
+      Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Text(
+          '23 Dec - 25 Dec, 1 Room - 2 Adults',
+          style: TextStyle(fontWeight: FontWeight.w500),
+        ),
+      ),
+      CustomCardB(image: 'assets/images/img4.jpg', title: 'Queen Hotel'),
+      Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Text(
+          '26 Dec - 28 Dec, 1 Room - 2 Adults',
+          style: TextStyle(fontWeight: FontWeight.w500),
+        ),
+      ),
       CustomCardB(image: 'assets/images/img3.jpg', title: 'Grand Royal Hotel'),
     ],
   );

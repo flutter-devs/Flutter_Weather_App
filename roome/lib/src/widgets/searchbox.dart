@@ -23,7 +23,7 @@ class SearchBox extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             offset: Offset(0, 3),
-            color: Colors.black26,
+            color: Colors.black12,
             spreadRadius: 2.0,
             blurRadius: 10,
           ),

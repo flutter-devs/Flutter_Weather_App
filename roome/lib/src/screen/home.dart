@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roome/src/model/data.dart';
+import 'package:roome/src/screen/detailscreen.dart';
 import 'package:roome/src/screen/profilescreen.dart';
 import 'package:roome/src/screen/tripsscreen.dart';
 import 'package:roome/src/widgets/button.dart';
+import 'package:roome/src/widgets/circleavtar.dart';
 import 'package:roome/src/widgets/customcard.dart';
 import 'package:roome/src/widgets/evnt.dart';
 import 'package:roome/src/widgets/searchbox.dart';
@@ -94,39 +96,7 @@ class Homebody extends StatelessWidget {
               hintText: 'Where are you going?'),
         ),
         // SizedBox(height: 20.0),
-        Container(
-          height: 90,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 5,
-            itemBuilder: (BuildContext context, int index) {
-              return Column(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    margin: EdgeInsets.only(left: 20.0),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/img3.jpg'),
-                          fit: BoxFit.fill),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  Container(
-                    // width: ,
-                    margin: EdgeInsets.only(left: 20.0, top: 5),
-                    child: Text(
-                      'Hotels',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
+        Circleavtar(),
         EventCard(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10.0),
@@ -174,9 +144,17 @@ class Homebody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
             itemBuilder: (BuildContext context, int index) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: CustomCard(
-                image: 'assets/images/img5.jpg',
-                title: 'Best Deal Hotel',
+              child: GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Detailscreen(),
+                  ),
+                ),
+                child: CustomCard(
+                  image: 'assets/images/img5.jpg',
+                  title: 'Grand Royal Hotel',
+                ),
               ),
             ),
           ),

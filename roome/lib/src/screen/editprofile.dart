@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:roome/src/screen/editprofile.dart';
 import 'package:roome/src/screen/home.dart';
-import 'package:roome/src/screen/homescreen.dart';
-import 'package:roome/src/screen/settings.dart';
+import 'package:roome/src/screen/profilescreen.dart';
 import 'package:roome/src/screen/tripsscreen.dart';
 
-class ProfileScreen extends StatelessWidget {
+class EditProfile extends StatelessWidget {
   BottomAppBar bottomAppBar(BuildContext context) {
     return BottomAppBar(
       color: Colors.white,
@@ -76,57 +74,43 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: ThemeData().scaffoldBackgroundColor,
+        iconTheme: ThemeData().iconTheme,
+        elevation: 0,
+      ),
       bottomNavigationBar: bottomAppBar(context),
-      body: ProfileBody(),
+      body: EditProfileBody(),
     );
   }
 }
 
-class ProfileBody extends StatelessWidget {
+class EditProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.height,
       width: size.width,
-      color: Colors.white,
       child: SafeArea(
-        minimum: EdgeInsets.symmetric(horizontal: 30.0, vertical: 80),
+        minimum: EdgeInsets.only(left: 20, right: 20, bottom: 40),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'Amanda',
-                      style: GoogleFonts.robotoSlab(
-                          color: Colors.black,
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditProfile(),
-                        ),
-                      ),
-                      child: Text(
-                        'View and edit profile',
-                        style: TextStyle(color: Colors.grey, fontSize: 15),
-                      ),
-                    ),
-                  ],
-                ),
-                CircleAvatar(
-                  radius: 50,
-                  backgroundImage: AssetImage('assets/images/amanda.jpg'),
-                ),
-              ],
+          children: [
+            Text(
+              'Edit Profile',
+              style: GoogleFonts.robotoSlab(
+                  color: Colors.black,
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 30),
+            Center(
+              child: CircleAvatar(
+                radius: 70,
+                backgroundImage: AssetImage('assets/images/amanda.jpg'),
+              ),
             ),
             SizedBox(height: 40),
             Column(
@@ -135,20 +119,25 @@ class ProfileBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      'Change Password',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      'Username',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey),
                     ),
-                    Icon(
-                      Icons.lock,
-                      color: Colors.grey,
+                    Text(
+                      'Amanda Jane',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
                     ),
                   ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Divider(thickness: 2),
-                )
+                ),
               ],
             ),
             Column(
@@ -157,20 +146,25 @@ class ProfileBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      'Invite Friends',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      'Email',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey),
                     ),
-                    Icon(
-                      Icons.people,
-                      color: Colors.grey,
+                    Text(
+                      'amanda@gmail.com',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
                     ),
                   ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Divider(thickness: 2),
-                )
+                ),
               ],
             ),
             Column(
@@ -179,20 +173,25 @@ class ProfileBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      'Credits & Coupons',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      'Phone',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey),
                     ),
-                    Icon(
-                      Icons.card_giftcard,
-                      color: Colors.grey,
+                    Text(
+                      '+652311333',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
                     ),
                   ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Divider(thickness: 2),
-                )
+                ),
               ],
             ),
             Column(
@@ -201,20 +200,25 @@ class ProfileBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      'Help Center',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      'Date of birth',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey),
                     ),
-                    Icon(
-                      Icons.help,
-                      color: Colors.grey,
+                    Text(
+                      '20/05/1990',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
                     ),
                   ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Divider(thickness: 2),
-                )
+                ),
               ],
             ),
             Column(
@@ -223,50 +227,25 @@ class ProfileBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      'Payments',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      'Address',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey),
                     ),
-                    Icon(
-                      Icons.payment,
-                      color: Colors.grey,
+                    Text(
+                      '123 Royal Street, New York',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
                     ),
                   ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Divider(thickness: 2),
-                )
-              ],
-            ),
-            Column(
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Settings(),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Settings',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Icon(
-                        Icons.settings,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: Divider(thickness: 2),
-                )
               ],
             ),
           ],
