@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roome/src/screen/editprofile.dart';
+import 'package:roome/src/screen/helpscreen.dart';
 import 'package:roome/src/screen/home.dart';
 import 'package:roome/src/screen/homescreen.dart';
 import 'package:roome/src/screen/settings.dart';
@@ -197,19 +198,27 @@ class ProfileBody extends StatelessWidget {
             ),
             Column(
               children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      'Help Center',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Helpscreen(),
                     ),
-                    Icon(
-                      Icons.help,
-                      color: Colors.grey,
-                    ),
-                  ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Help Center',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(
+                        Icons.help,
+                        color: Colors.grey,
+                      ),
+                    ],
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:roome/src/screen/review.dart';
 import 'package:roome/src/widgets/button.dart';
 
 class Detailscreen extends StatefulWidget {
@@ -323,9 +324,17 @@ class _BottomsheetState extends State<Bottomsheet> {
                     'Reviews (20)',
                     style: TextStyle(color: Colors.grey),
                   ),
-                  Text(
-                    'View all',
-                    style: TextStyle(color: Color(0xff53d2c1)),
+                  GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Reviewscreen(),
+                      ),
+                    ),
+                    child: Text(
+                      'View all',
+                      style: TextStyle(color: Color(0xff53d2c1)),
+                    ),
                   ),
                 ],
               ),
