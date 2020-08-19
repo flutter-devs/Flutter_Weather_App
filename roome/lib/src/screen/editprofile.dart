@@ -107,9 +107,26 @@ class EditProfileBody extends StatelessWidget {
             ),
             SizedBox(height: 30),
             Center(
-              child: CircleAvatar(
-                radius: 70,
-                backgroundImage: AssetImage('assets/images/amanda.jpg'),
+              child: Container(
+                height: 160,
+                width: 160,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/amn.jpg'),
+                        fit: BoxFit.cover),
+                    shape: BoxShape.circle),
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: CircleAvatar(
+                        backgroundColor: Color(0xff53d2c1),
+                        foregroundColor: Colors.white,
+                        child: Icon(Icons.camera_alt),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 40),

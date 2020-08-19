@@ -124,7 +124,7 @@ class ProfileBody extends StatelessWidget {
                 ),
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage('assets/images/amanda.jpg'),
+                  backgroundImage: AssetImage('assets/images/amn.jpg'),
                 ),
               ],
             ),
