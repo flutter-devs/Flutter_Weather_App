@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 class SearchBox extends StatelessWidget {
   final Widget prefixIcon;
   final String hintText;
+  final void Function() ondone;
+  final double width;
 
   const SearchBox({
     Key key,
     this.prefixIcon,
     this.hintText,
+    this.ondone,
+    this.width,
   }) : super(key: key);
 
   @override
@@ -15,7 +19,7 @@ class SearchBox extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.width * 0.13,
-      width: size.width * 0.95,
+      width: width,
       margin: EdgeInsets.symmetric(horizontal: 5.0),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -32,6 +36,9 @@ class SearchBox extends StatelessWidget {
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       child: TextField(
+        // expands: true,
+        // enabled: false,
+        onEditingComplete: ondone,
         decoration: InputDecoration(
           border: InputBorder.none,
           alignLabelWithHint: true,

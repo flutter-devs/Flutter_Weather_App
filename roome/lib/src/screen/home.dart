@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:roome/src/model/data.dart';
 import 'package:roome/src/screen/detailscreen.dart';
 import 'package:roome/src/screen/profilescreen.dart';
+import 'package:roome/src/screen/searchscreen.dart';
 import 'package:roome/src/screen/tripsscreen.dart';
 import 'package:roome/src/widgets/button.dart';
 import 'package:roome/src/widgets/circleavtar.dart';
@@ -92,8 +93,17 @@ class Homebody extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
           child: SearchBox(
-              prefixIcon: Icon(Icons.search, color: Color(0xff53d2c1)),
-              hintText: 'Where are you going?'),
+            prefixIcon: Icon(Icons.search, color: Color(0xff53d2c1)),
+            hintText: 'Where are you going?',
+            ondone: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Searchscreen(),
+                ),
+              );
+            },
+          ),
         ),
         // SizedBox(height: 20.0),
         Circleavtar(),

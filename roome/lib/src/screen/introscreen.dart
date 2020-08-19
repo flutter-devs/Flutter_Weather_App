@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roome/src/screen/loginscreen.dart';
 import 'package:roome/src/screen/signupscreen.dart';
@@ -15,10 +16,11 @@ class IntroScreen extends StatelessWidget {
 }
 
 class Introbody extends StatelessWidget {
-  const Introbody({
-    Key key,
-  }) : super(key: key);
-
+  List img = [
+    'assets/images/clip1.png',
+    'assets/images/clip2.png',
+  ];
+  List txt = ['Plan Your Trips', 'Find the Best Deal'];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,18 +28,49 @@ class Introbody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Image.asset(
-            'assets/images/clip2.png',
-            height: 340,
-          ),
-          Text(
-            'Plan your Trips',
-            style: GoogleFonts.robotoSlab(
-              fontSize: 30,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+          Expanded(
+              child: Swiper(
+            itemCount: 2,
+            loop: false,
+            viewportFraction: 1,
+            scale: 0.5,
+            // outer: true,
+            scrollDirection: Axis.horizontal,
+            pagination: SwiperPagination(
+              alignment: Alignment.topCenter,
+              margin: EdgeInsets.only(top: 480),
+              builder: DotSwiperPaginationBuilder(
+                color: Colors.grey,
+                size: 10.0,
+                activeSize: 10.0,
+                space: 3.0,
+                activeColor: Color(0xff53d2c1),
+              ),
             ),
-          ),
+            itemBuilder: (context, index) {
+              return Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset(
+                      img[index],
+                      fit: BoxFit.fill,
+                      height: 440,
+                    ),
+                    Text(
+                      txt[index],
+                      style: GoogleFonts.robotoSlab(
+                          fontSize: 26, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'Book one of our unique hotel to\n         escape the ordinary',
+                      style: TextStyle(color: Colors.grey),
+                    )
+                  ],
+                ),
+              );
+            },
+          )),
           Container(
             height: 115,
             child: Column(
