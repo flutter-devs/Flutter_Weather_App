@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:roome/src/screen/home.dart';
 import 'package:roome/src/screen/profilescreen.dart';
 import 'package:roome/src/widgets/customcardb.dart';
-import 'package:roome/src/widgets/inputbox.dart';
+// import 'package:roome/src/widgets/inputbox.dart';
 import 'package:roome/src/widgets/searchbox.dart';
 
 class Searchscreen extends StatelessWidget {
@@ -112,7 +112,7 @@ class _SearchbodyState extends State<Searchbody> {
           padding: EdgeInsets.symmetric(vertical: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+            children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -161,17 +161,17 @@ class _SearchbodyState extends State<Searchbody> {
         Expanded(
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            children: [
+            children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   Text('508 Hotels found'),
                   Row(
-                    children: [
+                    children: <Widget>[
                       Text('Filter'),
                       Icon(Icons.filter_list),
                     ],
-                  )
+                  ),
                 ],
               ),
               SizedBox(height: 10),

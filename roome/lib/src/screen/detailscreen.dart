@@ -80,8 +80,8 @@ class _DetailbodyState extends State<Detailbody> {
 }
 
 class Bottomsheet extends StatefulWidget {
-  double he;
-  Bottomsheet({
+  final double he;
+  const Bottomsheet({
     Key key,
     this.he,
   }) : super(key: key);
@@ -482,8 +482,9 @@ class Photos extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class infoCard extends StatefulWidget {
-  Widget child;
+  final Widget child;
   infoCard({
     Key key,
     this.child,
@@ -493,6 +494,7 @@ class infoCard extends StatefulWidget {
   _infoCardState createState() => _infoCardState();
 }
 
+// ignore: camel_case_types
 class _infoCardState extends State<infoCard> {
   @override
   Widget build(BuildContext context) {
@@ -596,6 +598,7 @@ class _infoCardState extends State<infoCard> {
   }
 }
 
+// ignore: camel_case_types
 class topwidget extends StatelessWidget {
   const topwidget({
     Key key,
@@ -631,6 +634,7 @@ class topwidget extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class backimage extends StatelessWidget {
   const backimage({
     Key key,

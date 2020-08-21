@@ -5,7 +5,7 @@ import 'package:roome/src/screen/detailscreen.dart';
 import 'package:roome/src/screen/profilescreen.dart';
 import 'package:roome/src/screen/searchscreen.dart';
 import 'package:roome/src/screen/tripsscreen.dart';
-import 'package:roome/src/widgets/button.dart';
+// import 'package:roome/src/widgets/button.dart';
 import 'package:roome/src/widgets/circleavtar.dart';
 import 'package:roome/src/widgets/customcard.dart';
 import 'package:roome/src/widgets/evnt.dart';

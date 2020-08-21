@@ -16,11 +16,11 @@ class IntroScreen extends StatelessWidget {
 }
 
 class Introbody extends StatelessWidget {
-  List img = [
+  final List img = [
     'assets/images/clip1.png',
     'assets/images/clip2.png',
   ];
-  List txt = ['Plan Your Trips', 'Find the Best Deal'];
+  final List txt = ['Plan Your Trips', 'Find the Best Deal'];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
