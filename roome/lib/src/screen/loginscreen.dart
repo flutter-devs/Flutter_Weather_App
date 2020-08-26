@@ -76,7 +76,7 @@ class LoginBody extends StatelessWidget {
             ),
           ),
           SizedBox(height: 30.0),
-          Inputbox(text: 'You Email'),
+          Inputbox(text: 'Your Email'),
           Inputbox(
               obscuretext: true,
               text: 'Password',
@@ -122,7 +122,7 @@ class LoginBody extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 190.0),
+          SizedBox(height: 250.0),
           Center(
             child: GestureDetector(
               onTap: () => Navigator.push(
