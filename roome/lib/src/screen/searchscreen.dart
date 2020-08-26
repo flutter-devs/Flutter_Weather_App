@@ -152,7 +152,8 @@ class _SearchbodyState extends State<Searchbody> {
                     },
                   ),
                   Text('|'),
-                  Text('1 Room - 2 Adults'),
+                  GestureDetector(
+                      onTap: () {}, child: Text('1 Room - 2 Adults')),
                 ],
               ),
             ],
@@ -188,5 +189,20 @@ class _SearchbodyState extends State<Searchbody> {
         ),
       ],
     );
+  }
+
+  int value = 1;
+  void upVal() {
+    setState(() {
+      value++;
+    });
+  }
+
+  void downVal() {
+    setState(() {
+      if (value != 1) {
+        value--;
+      }
+    });
   }
 }
