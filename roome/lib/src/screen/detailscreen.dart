@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:roome/src/screen/review.dart';
+import 'package:roome/src/screen/rooms.dart';
 import 'package:roome/src/widgets/button.dart';
 
 class Detailscreen extends StatefulWidget {
@@ -368,7 +369,14 @@ class _BottomsheetState extends State<Bottomsheet> {
                 textcolor: Colors.white,
                 height: 45,
                 buttonColor: Color(0xff53d2c1),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Rooms(),
+                    ),
+                  );
+                },
               ),
             )
           ],
