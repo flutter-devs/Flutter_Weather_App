@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:roome/src/widgets/button.dart';
-import 'package:roome/src/widgets/customcardb.dart';
 
 class Rooms extends StatelessWidget {
   @override
