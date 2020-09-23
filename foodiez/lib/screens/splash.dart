@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodiez/screens/login.dart';
 import 'package:foodiez/widgets/button.dart';
+import 'package:get/get.dart';
 
 class Splashscreen extends StatelessWidget {
   @override
@@ -42,12 +43,7 @@ class Splashbody extends StatelessWidget {
             color: Colors.white,
             text: 'Login',
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginScreen(),
-                ),
-              );
+              Get.to(LoginScreen());
             },
           ),
         ],
