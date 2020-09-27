@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodiez/screens/home.dart';
+import 'package:foodiez/screens/home/home.dart';
 import 'package:foodiez/screens/signup.dart';
 import 'package:foodiez/widgets/button.dart';
 import 'package:foodiez/widgets/inputbox.dart';
@@ -51,7 +51,7 @@ class Loginbody extends StatelessWidget {
                   color: Color(0xffffcc2a),
                   onPressed: () {
                     Get.focusScope.unfocus();
-                    Get.to(HomeScreen());
+                    Get.offAll(HomeScreen());
                   },
                 ),
               ],

@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:foodiez/models/image.dart';
-import 'package:foodiez/widgets/custmCard1.dart';
+import 'package:foodiez/models/datamodel.dart';
+import 'package:foodiez/screens/favourite/favourite.dart';
+import 'package:foodiez/screens/home/components/mealsCard.dart';
+import 'package:foodiez/screens/home/components/mostPopularCard.dart';
+import 'package:foodiez/screens/home/components/restaurantCrad.dart';
+import 'package:foodiez/screens/home/components/searchBox.dart';
+import 'package:foodiez/screens/home/components/suggsenCard.dart';
+import 'package:foodiez/screens/profile/profile.dart';
+import 'package:foodiez/widgets/seeAll.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,7 +19,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
-
+  String appBarText = 'Home';
   Widget bottomAppbar(BuildContext context) {
     Size size = Get.mediaQuery.size;
     return Container(
@@ -38,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   selectedIndex = 0;
+                  appBarText = 'Home';
                 });
               }),
           IconButton(
@@ -46,6 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   selectedIndex = 1;
+                  appBarText = '';
                 });
               }),
           IconButton(
@@ -54,6 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   selectedIndex = 2;
+                  appBarText = 'Favourite';
                 });
               }),
           IconButton(
@@ -62,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   selectedIndex = 3;
+                  appBarText = '';
                 });
               }),
         ],
@@ -74,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Home",
+          appBarText,
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -83,8 +95,18 @@ class _HomeScreenState extends State<HomeScreen> {
         iconTheme: IconThemeData(color: Colors.yellow[700]),
       ),
       bottomNavigationBar: bottomAppbar(context),
-      body: Homebody(),
-      backgroundColor: Colors.white,
+      body: IndexedStack(
+        index: selectedIndex,
+        children: [
+          Homebody(),
+          Center(
+            child: Text('Loc'),
+          ),
+          Favourite(),
+          ProfileScreen()
+        ],
+      ),
+      backgroundColor: Colors.grey[100],
     );
   }
 }
@@ -96,7 +118,7 @@ class Homebody extends StatelessWidget {
     return Container(
       height: size.height,
       width: size.width,
-      // padding: EdgeInsets.symmetric(vertical: 20),
+      color: Colors.white,
       child: ListView(
         children: [
           Padding(
@@ -121,85 +143,37 @@ class Homebody extends StatelessWidget {
                 ),
               ),
               itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(imageList2[index].image),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Thai Style',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Text(
-                            '12 Places',
-                            style: TextStyle(color: Colors.white54),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                return SuggestionCard(
+                  imageData: suggestion[index],
                 );
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Most Popular',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'See all',
-                  style: TextStyle(color: Colors.teal[300]),
-                ),
-              ],
-            ),
+          SeeAll(
+            text: 'Most Popular',
+            buttonText: 'See all',
           ),
           Container(
-            height: 185,
-            width: size.width,
-            // padding: EdgeInsets.only(left: 10),
+            height: size.width * 0.45,
+            margin: EdgeInsets.only(bottom: 20),
             child: ListView.builder(
               padding: EdgeInsets.only(left: 10),
               scrollDirection: Axis.horizontal,
               itemCount: 5,
               itemBuilder: (BuildContext context, int index) {
-                return CustmCard1(
-                  imageData: imageList[index],
+                return MostPopularCard(
+                  imageData: mostpop[index],
                 );
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Meal Deals',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'See all',
-                  style: TextStyle(color: Colors.teal[300]),
-                ),
-              ],
-            ),
+          SeeAll(
+            text: 'Meals Deals',
+            buttonText: 'See all',
           ),
           Container(
-            height: 195,
+            height: size.width * 0.45,
+            margin: EdgeInsets.only(bottom: 20),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.only(left: 10),
@@ -210,70 +184,26 @@ class Homebody extends StatelessWidget {
                 );
               },
             ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class MealsCard extends StatelessWidget {
-  final ImageData imageData;
-  const MealsCard({
-    Key key,
-    this.imageData,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // height: 195,
-      width: 135,
-      margin: EdgeInsets.only(right: 10),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage(imageData.image), fit: BoxFit.cover),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Align(
-        alignment: Alignment.bottomLeft,
-        child: ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 10),
-          title: Text(
-            'Greek Style',
-            style: TextStyle(color: Colors.white),
           ),
-          subtitle: Text('34 Places', style: TextStyle(color: Colors.white54)),
-        ),
-      ),
-    );
-  }
-}
-
-class Searchbox extends StatelessWidget {
-  const Searchbox({
-    Key key,
-    @required this.size,
-  }) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: size.width,
-      child: TextField(
-        decoration: InputDecoration(
-          alignLabelWithHint: true,
-          contentPadding: EdgeInsets.all(5),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Color(0xffffcc2a), width: 2.0)),
-          hintText: 'Search for restaurant...',
-          prefixIcon: Icon(Icons.search),
-        ),
+          SeeAll(
+            text: 'Popular Restaurants',
+            buttonText: 'See all',
+          ),
+          Container(
+            height: size.width * 0.3,
+            margin: EdgeInsets.only(bottom: 20),
+            child: ListView.builder(
+              padding: EdgeInsets.only(left: 10),
+              scrollDirection: Axis.horizontal,
+              itemCount: 5,
+              itemBuilder: (BuildContext context, int index) {
+                return PopularRestCard(
+                  imageData: restron[index],
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

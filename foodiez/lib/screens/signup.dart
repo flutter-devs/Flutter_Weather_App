@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodiez/screens/home.dart';
+import 'package:foodiez/screens/home/home.dart';
 import 'package:foodiez/screens/login.dart';
 import 'package:foodiez/widgets/button.dart';
 import 'package:foodiez/widgets/inputbox.dart';

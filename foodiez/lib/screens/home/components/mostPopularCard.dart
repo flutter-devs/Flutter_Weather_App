@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:foodiez/models/image.dart';
+import 'package:foodiez/models/datamodel.dart';
+import 'package:get/get.dart';
 
-class CustmCard1 extends StatelessWidget {
+class MostPopularCard extends StatelessWidget {
   final ImageData imageData;
-  const CustmCard1({
+  const MostPopularCard({
     Key key,
     this.imageData,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Size size = Get.mediaQuery.size;
     return Container(
       margin: EdgeInsets.only(right: 10),
+      alignment: Alignment.center,
       child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 110,
-            width: 140,
+            height: size.width * 0.3,
+            width: size.width * 0.35,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(imageData.image),
@@ -27,15 +31,15 @@ class CustmCard1 extends StatelessWidget {
             ),
           ),
           Container(
-            height: 60,
-            width: 140,
+            // height,
+            width: size.width * 0.35,
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  offset: Offset(0, 3),
+                  offset: Offset(0, 2),
                   color: Colors.grey,
-                  blurRadius: 10,
+                  blurRadius: 5,
                   spreadRadius: -2,
                 ),
               ],
