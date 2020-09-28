@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodiez/screens/home/home.dart';
+import 'package:foodiez/screens/forgotpass.dart';
+
+import 'package:foodiez/screens/landing.dart';
 import 'package:foodiez/screens/signup.dart';
 import 'package:foodiez/widgets/button.dart';
 import 'package:foodiez/widgets/inputbox.dart';
@@ -39,7 +41,9 @@ class Loginbody extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(ForgotPass());
+                    },
                     child: Text('Forgot Password?'),
                     textColor: Colors.teal[300],
                   ),
@@ -51,7 +55,7 @@ class Loginbody extends StatelessWidget {
                   color: Color(0xffffcc2a),
                   onPressed: () {
                     Get.focusScope.unfocus();
-                    Get.offAll(HomeScreen());
+                    Get.offAll(Landing());
                   },
                 ),
               ],

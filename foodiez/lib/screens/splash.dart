@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:foodiez/models/datamodel.dart';
 import 'package:foodiez/screens/login.dart';
 import 'package:foodiez/widgets/button.dart';
 import 'package:get/get.dart';
@@ -25,17 +27,51 @@ class Splashbody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          CircleAvatar(
-            radius: 100,
-            backgroundColor: Colors.white,
-          ),
-          Text(
-            'Quick Search',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            'Set your location to start exploring\n          restaurants around you',
-            style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: .8),
+          SizedBox(
+            height: size.width,
+            width: size.width,
+            child: Swiper(
+              itemCount: 4,
+              pagination: SwiperPagination(
+                alignment: Alignment.bottomCenter,
+                // margin: EdgeInsets.only(),
+                builder: DotSwiperPaginationBuilder(
+                  color: Colors.grey[200],
+                  size: 6.0,
+                  activeSize: 9.0,
+                  space: 3.0,
+                  activeColor: Colors.white,
+                ),
+              ),
+              itemBuilder: (context, index) {
+                return Container(
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        splash[index].image,
+                        height: size.width - 150,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Text(
+                          splashTxt[index].food,
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          splashTxt[index].ratin,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, letterSpacing: .8),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
           Button(
             height: 50,

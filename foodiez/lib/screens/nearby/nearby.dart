@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:foodiez/models/datamodel.dart';
 import 'package:foodiez/screens/detail/detail.dart';
+import 'package:foodiez/widgets/searchBox.dart';
 import 'package:get/get.dart';
 
-class Favourite extends StatelessWidget {
-  const Favourite({Key key}) : super(key: key);
+class NearbyScreen extends StatelessWidget {
+  const NearbyScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // final TextData textData;
-    String rat = '4.3';
+    String rat = '3.8';
     Size size = Get.mediaQuery.size;
     return Container(
-      height: size.height,
-      width: size.width,
-      color: Colors.grey[100],
-      padding: EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
+          Container(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Searchbox(size: size),
+            ),
+          ),
           Expanded(
             child: ListView.builder(
               itemCount: 4,
@@ -25,15 +28,15 @@ class Favourite extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {
                     Get.to(DetailScreen(
-                      image: restron[index].image,
-                      title: foods[index].food,
+                      image: mostpop[index].image,
+                      title: nearby[index].food,
                     ));
                   },
-                  child: FavCard(
+                  child: NearbyCard(
                     size: size,
                     rat: rat,
-                    imageData: restron[index],
-                    textData: foods[index],
+                    imageData: mostpop[index],
+                    textData: nearby[index],
                   ),
                 );
               },
@@ -45,17 +48,19 @@ class Favourite extends StatelessWidget {
   }
 }
 
-class FavCard extends StatelessWidget {
-  const FavCard({
+class NearbyCard extends StatelessWidget {
+  const NearbyCard({
     Key key,
     @required this.size,
-    @required this.rat,
+    this.rat,
     this.textData,
     this.imageData,
+    this.rats,
   }) : super(key: key);
 
   final Size size;
   final String rat;
+  final String rats;
   final TextData textData;
   final ImageData imageData;
 
@@ -103,7 +108,7 @@ class FavCard extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: textData.ratin == rat ? Colors.amber : Colors.red[300],
+                  color: textData.ratin != rat ? Colors.amber : Colors.red[300],
                   borderRadius: BorderRadius.circular(4)),
               padding: EdgeInsets.symmetric(horizontal: 4),
               child: Text(textData.ratin),

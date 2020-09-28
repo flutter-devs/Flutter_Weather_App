@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodiez/screens/friends/friends.dart';
 import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -17,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage('assets/images/rest1.jpg'),
+                  backgroundImage: AssetImage('assets/images/profile.png'),
                 ),
                 Text(
                   'Jenny Limar',
@@ -34,7 +35,11 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 FlatTextButton(text: 'Payment Method'),
-                FlatTextButton(text: 'Invite Friends'),
+                GestureDetector(
+                    onTap: () {
+                      Get.to(Friends());
+                    },
+                    child: FlatTextButton(text: 'Invite Friends')),
                 FlatTextButton(text: 'Settings'),
                 FlatTextButton(text: 'Log out'),
               ],

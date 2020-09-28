@@ -4,9 +4,11 @@ import 'package:get/get.dart';
 
 class MostPopularCard extends StatelessWidget {
   final ImageData imageData;
+  final String text;
   const MostPopularCard({
     Key key,
     this.imageData,
+    this.text,
   }) : super(key: key);
 
   @override
@@ -51,7 +53,7 @@ class MostPopularCard extends StatelessWidget {
             child: ListTile(
               contentPadding: EdgeInsets.symmetric(horizontal: 8),
               title: Text(
-                'KFC Broadway',
+                text,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Text(

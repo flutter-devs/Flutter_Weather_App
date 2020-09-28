@@ -4,9 +4,11 @@ import 'package:get/get.dart';
 
 class MealsCard extends StatelessWidget {
   final ImageData imageData;
+  final TextData textData;
   const MealsCard({
     Key key,
     this.imageData,
+    this.textData,
   }) : super(key: key);
 
   @override
@@ -36,7 +38,7 @@ class MealsCard extends StatelessWidget {
             dense: true,
             contentPadding: EdgeInsets.symmetric(horizontal: 10),
             title: Text(
-              'Greek Style',
+              textData.food,
               style: TextStyle(color: Colors.white),
             ),
             subtitle:
