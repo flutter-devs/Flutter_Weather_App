@@ -132,6 +132,7 @@ class Homebody extends StatelessWidget {
             width: size.width,
             margin: EdgeInsets.symmetric(vertical: 10),
             child: Swiper(
+              autoplay: true,
               itemCount: 3,
               pagination: SwiperPagination(
                 alignment: Alignment.bottomRight,
