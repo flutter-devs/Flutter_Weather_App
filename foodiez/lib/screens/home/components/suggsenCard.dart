@@ -3,9 +3,11 @@ import 'package:foodiez/models/datamodel.dart';
 
 class SuggestionCard extends StatelessWidget {
   final ImageData imageData;
+  final String text;
   const SuggestionCard({
     Key key,
     this.imageData,
+    this.text,
   }) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class SuggestionCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                'Thai Style',
+                text,
                 style: TextStyle(color: Colors.white),
               ),
               Text(

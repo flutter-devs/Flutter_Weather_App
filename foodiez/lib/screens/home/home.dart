@@ -9,6 +9,7 @@ import 'package:foodiez/screens/home/components/mostPopularCard.dart';
 import 'package:foodiez/screens/home/components/restaurantCrad.dart';
 import 'package:foodiez/screens/nearby/nearby.dart';
 import 'package:foodiez/screens/popular/popular.dart';
+import 'package:foodiez/screens/trending/trending.dart';
 import 'package:foodiez/widgets/searchBox.dart';
 import 'package:foodiez/screens/home/components/suggsenCard.dart';
 import 'package:foodiez/screens/profile/profile.dart';
@@ -148,6 +149,7 @@ class Homebody extends StatelessWidget {
               itemBuilder: (context, index) {
                 return SuggestionCard(
                   imageData: suggestion[index],
+                  text: ['Thai Style', 'Geeky Style', 'Indian'][index],
                 );
               },
             ),
@@ -164,9 +166,14 @@ class Homebody extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                return MostPopularCard(
-                  imageData: mostpop[index],
-                  text: text[index],
+                return GestureDetector(
+                  onTap: () {
+                    Get.to(Trending());
+                  },
+                  child: MostPopularCard(
+                    imageData: mostpop[index],
+                    text: text[index],
+                  ),
                 );
               },
             ),

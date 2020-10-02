@@ -30,6 +30,9 @@ dependencies:
   get: ^3.11.1
   flutter_swiper: ^1.1.6
 
+  google_fonts: ^1.1.0
+  font_awesome_flutter: ^8.8.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
