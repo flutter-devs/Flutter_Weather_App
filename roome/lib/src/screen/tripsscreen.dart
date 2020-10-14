@@ -177,17 +177,28 @@ Widget upcoming(BuildContext context) {
 }
 
 Widget finished(BuildContext context) {
-  return Container();
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    child: Column(
+      children: <Widget>[
+        CustomCard(image: 'assets/images/img2.jpg', title: 'Hotel Plaza'),
+        SizedBox(height: 20),
+      ],
+    ),
+  );
 }
 
 Widget favourites(BuildContext context) {
-  return Column(
-    children: <Widget>[
-      CustomCard(image: 'assets/images/img3.jpg', title: 'Grand Hotel'),
-      SizedBox(height: 20),
-      CustomCard(image: 'assets/images/img5.jpg', title: 'Grand Hotel'),
-      SizedBox(height: 20),
-      CustomCard(image: 'assets/images/img2.jpg', title: 'Grand Hotel'),
-    ],
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    child: Column(
+      children: <Widget>[
+        CustomCard(image: 'assets/images/img3.jpg', title: 'Grand Hotel'),
+        SizedBox(height: 20),
+        CustomCard(image: 'assets/images/img5.jpg', title: 'Grand Hotel'),
+        SizedBox(height: 20),
+        CustomCard(image: 'assets/images/img2.jpg', title: 'Grand Hotel'),
+      ],
+    ),
   );
 }
