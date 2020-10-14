@@ -23,6 +23,8 @@ const foods = [
   TextData(food: 'Sushi Car', ratin: '3.8'),
   TextData(food: 'Blacksmith Cafe', ratin: '4.3'),
   TextData(food: 'Pizza Box', ratin: '4.3'),
+  TextData(food: 'Good Fellas', ratin: '4.3'),
+  TextData(food: 'Chinese Center', ratin: '4.3'),
 ];
 const rests = [
   TextData(food: 'Good Thai', ratin: '4.3'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodiez/models/datamodel.dart';
+import 'package:foodiez/screens/payment/payment.dart';
 import 'package:foodiez/screens/reviews/reviews.dart';
 import 'package:foodiez/widgets/reviewCard.dart';
 import 'package:foodiez/widgets/seeAll.dart';
@@ -52,27 +53,32 @@ class DetailScreen extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            height: 50,
-            width: size.width,
-            margin: EdgeInsets.only(bottom: 10),
-            decoration: BoxDecoration(
-              color: Colors.amber[400],
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(0, 2),
-                  color: Colors.grey,
-                  blurRadius: 5,
-                  spreadRadius: -2,
-                ),
-              ],
-            ),
-            child: Center(
-              child: Text(
-                'Order Food Online',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+          GestureDetector(
+            onTap: () {
+              Get.to(PaymentScreen());
+            },
+            child: Container(
+              height: 50,
+              width: size.width,
+              margin: EdgeInsets.only(bottom: 10),
+              decoration: BoxDecoration(
+                color: Colors.amber[400],
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 2),
+                    color: Colors.grey,
+                    blurRadius: 5,
+                    spreadRadius: -2,
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Text(
+                  'Order Food Online',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

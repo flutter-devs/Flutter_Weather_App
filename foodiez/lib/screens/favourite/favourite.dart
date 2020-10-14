@@ -14,13 +14,13 @@ class Favourite extends StatelessWidget {
     return Container(
       height: size.height,
       width: size.width,
-      color: Colors.grey[100],
+      // color: Colors.grey[100],
       padding: EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: 4,
+              itemCount: 6,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {

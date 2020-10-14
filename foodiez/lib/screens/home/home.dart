@@ -4,6 +4,9 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:foodiez/models/datamodel.dart';
 import 'package:foodiez/screens/collections/collection.dart';
 import 'package:foodiez/screens/favourite/favourite.dart';
+import 'package:foodiez/screens/gridview/Restgridview.dart';
+import 'package:foodiez/screens/gridview/mostGridview.dart';
+import 'package:foodiez/screens/gridview/mealGridview.dart';
 import 'package:foodiez/screens/home/components/mealsCard.dart';
 import 'package:foodiez/screens/home/components/mostPopularCard.dart';
 import 'package:foodiez/screens/home/components/restaurantCrad.dart';
@@ -118,6 +121,7 @@ class Homebody extends StatelessWidget {
   Widget build(BuildContext context) {
     List text = ['KFC Broadway', 'Greek House', 'Spice Alley', 'Canton House'];
     Size size = Get.mediaQuery.size;
+    // int index;
     return Container(
       height: size.height,
       width: size.width,
@@ -154,9 +158,16 @@ class Homebody extends StatelessWidget {
               },
             ),
           ),
-          SeeAll(
-            text: 'Most Popular',
-            buttonText: 'See all',
+          GestureDetector(
+            onTap: () {
+              Get.to(Gridscreenmost(
+                title: 'Most Popular',
+              ));
+            },
+            child: SeeAll(
+              text: 'Most Popular',
+              buttonText: 'See all',
+            ),
           ),
           Container(
             height: size.width * 0.45,
@@ -178,9 +189,16 @@ class Homebody extends StatelessWidget {
               },
             ),
           ),
-          SeeAll(
-            text: 'Meals Deals',
-            buttonText: 'See all',
+          GestureDetector(
+            onTap: () {
+              Get.to(Gridscreenmeal(
+                title: 'Meals Deals',
+              ));
+            },
+            child: SeeAll(
+              text: 'Meals Deals',
+              buttonText: 'See all',
+            ),
           ),
           Container(
             height: size.width * 0.45,
@@ -202,9 +220,20 @@ class Homebody extends StatelessWidget {
               },
             ),
           ),
-          SeeAll(
-            text: 'Popular Restaurants',
-            buttonText: 'See all',
+          GestureDetector(
+            onTap: () {
+              Get.to(Gridscreen(
+                title: 'Popular Restaurants',
+                // child: PopularRestCard(
+                //   imageData: restron[index],
+                //   rightvalpad: 10,
+                // ),
+              ));
+            },
+            child: SeeAll(
+              text: 'Popular Restaurants',
+              buttonText: 'See all',
+            ),
           ),
           Container(
             height: size.width * 0.3,
@@ -220,6 +249,7 @@ class Homebody extends StatelessWidget {
                   },
                   child: PopularRestCard(
                     imageData: restron[index],
+                    rightvalpad: 10,
                   ),
                 );
               },

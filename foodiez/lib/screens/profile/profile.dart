@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
       height: size.height,
       width: size.width,
       color: Colors.white,
-      child: Column(
+      child: ListView(
         children: [
           Container(
             margin: EdgeInsets.symmetric(vertical: 60),
@@ -23,8 +23,7 @@ class ProfileScreen extends StatelessWidget {
                     width: 160,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(
-                                'https://raw.githubusercontent.com/anubhav11803451/FlutterDevs/master/roome/assets/images/amn.jpg'),
+                            image: AssetImage('assets/images/amn.jpg'),
                             fit: BoxFit.cover),
                         shape: BoxShape.circle),
                     child: Stack(
