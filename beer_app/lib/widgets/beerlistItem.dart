@@ -13,7 +13,7 @@ class BeerListItem extends StatelessWidget {
       subtitle: Text(beer.tagline),
       childrenPadding: const EdgeInsets.all(16),
       leading: Container(
-        margin: EdgeInsets.only(top: 8),
+        margin: EdgeInsets.only(top: 9),
         child: Text(beer.id.toString()),
       ),
       children: [
